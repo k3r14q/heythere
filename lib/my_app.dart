@@ -1,5 +1,6 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:heythere/custom_background.dart';
+import 'package:heythere/lyrics.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,20 +30,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Random random = Random();
-  int maxColorValue = 256;
-  Color customBackgroundColor = Colors.white;
   double textFontSize = 36;
   double luminanceLevel = 0.5;
-
-  void changeBackgroundColor() {
-    customBackgroundColor = Color.fromRGBO(
-      random.nextInt(maxColorValue),
-      random.nextInt(maxColorValue),
-      random.nextInt(maxColorValue),
-      1,
-    );
-  }
+  CustomBackground customBackground = CustomBackground(256, Colors.white);
+  Lyrics lyrics = Lyrics();
 
   @override
   Widget build(BuildContext context) {
@@ -51,20 +42,22 @@ class _HomePageState extends State<HomePage> {
         child: GestureDetector(
           child: Container(
             alignment: Alignment.center,
-            color: customBackgroundColor,
+            color: customBackground.color,
             child: Text(
-              "Hey there!",
+              lyrics.lines[lyrics.currentLine],
               style: TextStyle(
                 fontSize: textFontSize,
-                color: customBackgroundColor.computeLuminance() > luminanceLevel
-                    ? Colors.black
-                    : Colors.white,
+                color:
+                    customBackground.color.computeLuminance() > luminanceLevel
+                        ? Colors.black
+                        : Colors.white,
               ),
             ),
           ),
           onTap: () {
             setState(() {
-              changeBackgroundColor();
+              customBackground.changeColor();
+              lyrics.toNextLine();
             });
           },
         ),
