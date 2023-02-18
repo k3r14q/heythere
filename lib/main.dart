@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
-
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomePage(
-        
-      ),
+      home: HomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -27,20 +25,44 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
   Random random = Random();
-  Color generatedColor = Color(0xff69ee77);
+  int maxColorValue = 256;
+  Color customBackgroundColor = Colors.white;
 
-  Color changeBackgroundColor() {
-    generatedColor = Color.fromRGBO(random.nextInt(255), random.nextInt(255), random.nextInt(255), 1);
-    print(generatedColor);
-    return generatedColor;
+  void changeBackgroundColor() {
+    customBackgroundColor = Color.fromRGBO(
+      random.nextInt(maxColorValue),
+      random.nextInt(maxColorValue),
+      random.nextInt(maxColorValue),
+      1,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: changeBackgroundColor(),
+      body: Center(
+        child: GestureDetector(
+          child: Container(
+            alignment: Alignment.center,
+            color: customBackgroundColor,
+            child: Text(
+              "Hey there!",
+              style: TextStyle(
+                fontSize: 36,
+                color: customBackgroundColor.computeLuminance() > 0.5
+                    ? const Color(0xFF131415)
+                    : const Color(0xFFFFFFFF),
+              ),
+            ),
+          ),
+          onTap: () {
+            setState(() {
+              changeBackgroundColor();
+            });
+          },
+        ),
+      ),
     );
   }
 }
