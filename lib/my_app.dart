@@ -5,7 +5,9 @@ void main() {
   runApp(const MyApp());
 }
 
+///
 class MyApp extends StatelessWidget {
+  ///
   const MyApp({super.key});
 
   @override
@@ -17,7 +19,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+///
 class HomePage extends StatefulWidget {
+  ///
   const HomePage({super.key});
 
   @override
@@ -28,6 +32,8 @@ class _HomePageState extends State<HomePage> {
   Random random = Random();
   int maxColorValue = 256;
   Color customBackgroundColor = Colors.white;
+  double textFontSize = 36;
+  double luminanceLevel = 0.5;
 
   void changeBackgroundColor() {
     customBackgroundColor = Color.fromRGBO(
@@ -49,10 +55,10 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               "Hey there!",
               style: TextStyle(
-                fontSize: 36,
-                color: customBackgroundColor.computeLuminance() > 0.5
-                    ? const Color(0xFF131415)
-                    : const Color(0xFFFFFFFF),
+                fontSize: textFontSize,
+                color: customBackgroundColor.computeLuminance() > luminanceLevel
+                    ? Colors.black
+                    : Colors.white,
               ),
             ),
           ),
