@@ -9,5 +9,5 @@
 
 # Features 
 - Changing background color on tap ✔️ 
-- Display song lyrics in the middle of the screen ✔️ 
+- Displaying song lyrics in the middle of the screen ✔️ 
 - Changing the color of text depending on brightness of the background color ✔️ 
