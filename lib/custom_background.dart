@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-///
+/// A class that represents custom background features
 class CustomBackground {
   final Random _random = Random();
   final int _maxColorValue;

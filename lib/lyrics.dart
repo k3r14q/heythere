@@ -1,4 +1,4 @@
-///
+/// A class that represents the lines of a song to display
 class Lyrics {
   final List<String> _lines = [
     "Hey there, I just met you",
