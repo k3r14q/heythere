@@ -7,8 +7,7 @@
 6. Push code to a GitHub
 7. Send the link to a GitHub repository back
 
-# Usage
-1. Press "Use this template" on the menu.
-2. Fill Github form with your new repo name and press "Create repository from template"
-3. Wait for it to be created and set up action is complete. In a couple of minutes, you'll see the flutter project created in your repo once Github Actions are complete.
-4. Clone and code.
+# Features 
+- Changing background color on tap ✔️ 
+- Display song lyrics in the middle of the screen ✔️ 
+- Changing the color of text depending on brightness of the background color ✔️ 
