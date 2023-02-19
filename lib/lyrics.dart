@@ -8,7 +8,6 @@ class Lyrics {
   ];
 
   int _currentLine = 0;
-  final int _maxLine = 3;
 
   /// Getter for _currentLine
   int get currentLine {
@@ -22,7 +21,7 @@ class Lyrics {
 
   /// Method for moving to the next line of the song
   void toNextLine() {
-    if (_currentLine < _maxLine) {
+    if (_currentLine < _lines.length - 1) {
       _currentLine++;
     }
   }

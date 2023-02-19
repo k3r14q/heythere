@@ -30,8 +30,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  double textFontSize = 36;
-  double luminanceLevel = 0.5;
+  final double _textFontSize = 28;
+  final double _luminanceLevel = 0.5;
   CustomBackground customBackground = CustomBackground(256, Colors.white);
   Lyrics lyrics = Lyrics();
 
@@ -46,9 +46,9 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               lyrics.lines[lyrics.currentLine],
               style: TextStyle(
-                fontSize: textFontSize,
+                fontSize: _textFontSize,
                 color:
-                    customBackground.color.computeLuminance() > luminanceLevel
+                    customBackground.color.computeLuminance() > _luminanceLevel
                         ? Colors.black
                         : Colors.white,
               ),
